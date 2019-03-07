@@ -1,0 +1,62 @@
+.fx--widget__item {
+    border-radius: .5rem;
+    background-color: #fff;
+    margin-left: -1.2rem;
+    margin-bottom: .7rem;
+    padding: .75rem .75rem 0;
+    position: relative;
+
+    .fx--widget__subtitle {
+        display: block;
+        font-size: 1rem;
+    }
+
+    .fx--widget__desc {
+        display: block;
+        font-size: .8rem;
+    }
+
+    .fx--widget__val {
+        font-size: 3rem;
+        font-weight: 900;
+    }
+
+    .fx--widget__icon {
+        position: absolute;
+        font-size: 1.7rem;
+        right: 1.2rem;
+        bottom: 0.5rem;
+    }
+
+    &.blue {
+        color: $blue;
+    }
+
+    &.green {
+        color: $green;
+    }
+
+    &.dark-green {
+        color: $dark-green;
+    }
+
+    &.pink {
+        color: $pink;
+    }
+
+    &.dark-gray {
+        color: $dark-gray;
+    }
+
+    &.dark-orange {
+        color: $dark-orange;
+    }
+
+    &.yellow {
+        color: $yellow;
+    }
+
+    &.dark-sky {
+        color: $dark-sky;
+    }
+}
