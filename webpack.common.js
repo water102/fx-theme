@@ -42,122 +42,125 @@ exports.getBaseConfig = () => {
   };
 
   var rules = [{
-      test: /\.html$/,
-      use: [{
-        loader: 'html-loader?exportAsEs6Default',
-        options: {
-          minimize: true,
-          removeAttributeQuotes: false,
-          caseSensitive: true,
-          customAttrSurround: [
-            [/#/, /(?:)/],
-            [/\*/, /(?:)/],
-            [/\[?\(?/, /(?:)/]
-          ],
-          customAttrAssign: [/\)?\]?=/]
-        }
-      }]
-    },
-    {
-      test: /\.jsx?$/i,
-      exclude: /(node_modules|bower_components|bin)/i,
-      use: {
-        loader: 'babel-loader'
+    test: /\.html?$/,
+    use: [{
+      loader: 'html-loader?exportAsEs6Default',
+      options: {
+        minimize: true,
+        removeAttributeQuotes: false,
+        caseSensitive: true,
+        customAttrSurround: [
+          [/#/, /(?:)/],
+          [/\*/, /(?:)/],
+          [/\[?\(?/, /(?:)/]
+        ],
+        customAttrAssign: [/\)?\]?=/]
       }
-    },
-    {
-      test: /\.css$/,
-      use: [
-        'to-string-loader',
-        MiniCssExtractPlugin.loader,
-        {
-          // translates CSS into CommonJS modules
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
-          }
-        },
-        {
-          // Run post css actions
-          loader: 'postcss-loader',
-          options: {
-            // post css plugins, can be exported to postcss.config.js
-            plugins: function () {
-              return [require('autoprefixer')];
-            },
-            sourceMap: true
-          }
-        }
-      ]
-    },
-    {
-      test: /\.(sa|sc)ss$/,
-      use: [
-        'to-string-loader',
-        MiniCssExtractPlugin.loader,
-        {
-          // translates CSS into CommonJS modules
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
-          }
-        },
-        {
-          // Run post css actions
-          loader: 'postcss-loader',
-          options: {
-            // post css plugins, can be exported to postcss.config.js
-            plugins: function () {
-              return [require('autoprefixer')];
-            },
-            sourceMap: true
-          }
-        },
-        {
-          // compiles Sass to CSS
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
-          }
-        }
-      ]
-    },
-    {
-      test: /\.less$/,
-      use: [
-        'to-string-loader',
-        MiniCssExtractPlugin.loader,
-        {
-          // translates CSS into CommonJS modules
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
-          }
-        },
-        {
-          // Run post css actions
-          loader: 'postcss-loader',
-          options: {
-            // post css plugins, can be exported to postcss.config.js
-            plugins: function () {
-              return [require('autoprefixer')];
-            },
-            sourceMap: true
-          }
-        },
-        {
-          // compiles Less to CSS
-          loader: 'less-loader',
-          options: {
-            sourceMap: true
-          }
-        }
-      ]
-    },
-    {
-      test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.otf$|\.ttf$|\.wav$|\.mp3$/,
-      use: ['file-loader?name=[name].[ext]'] // <-- retain original file name
+    }]
+  },
+  {
+    test: /\.jsx?$/i,
+    exclude: /(node_modules|bower_components|bin)/i,
+    use: {
+      loader: 'babel-loader'
     }
+  },
+  {
+    test: /\.css$/,
+    use: [
+      'to-string-loader',
+      MiniCssExtractPlugin.loader,
+      {
+        // translates CSS into CommonJS modules
+        loader: 'css-loader',
+        options: {
+          sourceMap: true
+        }
+      },
+      {
+        // Run post css actions
+        loader: 'postcss-loader',
+        options: {
+          // post css plugins, can be exported to postcss.config.js
+          plugins: function () {
+            return [require('autoprefixer')];
+          },
+          sourceMap: true
+        }
+      }
+    ]
+  },
+  {
+    test: /\.(sa|sc)ss$/,
+    use: [
+      'to-string-loader',
+      MiniCssExtractPlugin.loader,
+      {
+        // translates CSS into CommonJS modules
+        loader: 'css-loader',
+        options: {
+          sourceMap: true
+        }
+      },
+      {
+        // Run post css actions
+        loader: 'postcss-loader',
+        options: {
+          // post css plugins, can be exported to postcss.config.js
+          plugins: function () {
+            return [require('autoprefixer')];
+          },
+          sourceMap: true
+        }
+      },
+      {
+        // compiles Sass to CSS
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+          includePaths: [
+            require('path').resolve(__dirname, 'node_modules')
+          ]
+        }
+      }
+    ]
+  },
+  {
+    test: /\.less$/,
+    use: [
+      'to-string-loader',
+      MiniCssExtractPlugin.loader,
+      {
+        // translates CSS into CommonJS modules
+        loader: 'css-loader',
+        options: {
+          sourceMap: true
+        }
+      },
+      {
+        // Run post css actions
+        loader: 'postcss-loader',
+        options: {
+          // post css plugins, can be exported to postcss.config.js
+          plugins: function () {
+            return [require('autoprefixer')];
+          },
+          sourceMap: true
+        }
+      },
+      {
+        // compiles Less to CSS
+        loader: 'less-loader',
+        options: {
+          sourceMap: true
+        }
+      }
+    ]
+  },
+  {
+    test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.otf$|\.ttf$|\.wav$|\.mp3$/,
+    use: ['file-loader?name=[name].[ext]'] // <-- retain original file name
+  }
   ];
 
   var optimization = {

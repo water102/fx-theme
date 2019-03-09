@@ -15,13 +15,28 @@ module.exports = () => {
       'jquery',
       'popper.js',
       'bootstrap',
-      'bootstrap-datepicker',
-      'chart.js',
+
+      // plugins
+      // 'chart.js',
+      // 'moment.js',
+
+      // react-all
+      'redux',
+      'redux-logger',
+      'redux-thunk',
+
+      'react',
+      'react-dom',
+      'react-router-dom',
+
+      'react-helmet',
+      'react-redux',
+      'react-localize-redux',
 
       // css
-      'bootstrap/dist/css/bootstrap.min.css',
-      'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'
-    ]
+      'bootstrap/dist/css/bootstrap.min.css'
+    ],
+    loading: ['./style/loading.scss']
   };
 
   var output = {
@@ -29,7 +44,7 @@ module.exports = () => {
   };
 
   var plugins = [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new webpack.DllPlugin({
       path: path.join(webpackCommon.PATHS.bundle, '[name]-manifest.json'),
       name: '[name]_[hash]'

@@ -1,6 +1,18 @@
-@import './_base';
-@import "./aside";
-@import "./aside-menu";
-@import "./header";
+/* Layouts */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "./shared/variables";
+@import "./variables";
+@import "./shared/mixins/misc";
+@import "./shared/mixins/animation";
+@import "./nav";
+@import "./navbar";
+@import "./sidebar";
 @import "./footer";
-@import "./_resposive";
+@import "./layouts";
+@import "./card";
+@import "./misc";
+
+@import "./components/modals";
+@import "./components/full-calendar";

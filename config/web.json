@@ -1,0 +1,9 @@
+{
+    "client_key": "0ee593ab-b986-4ca6-a4ce-3361e0f15b0d",
+    "socketServer": "/",
+    "apiUrls": {
+        "login": "/api/v1/login",
+        "signup": "/api/v1/sign-up",
+        "getCountries": "/api/v1/countries"
+    }
+}
