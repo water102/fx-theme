@@ -9,7 +9,8 @@ module.exports = () => {
   var entry = {
     vendor: [
       // support old browser, IE
-      '@babel/polyfill',
+      'core-js',
+      'regenerator-runtime',
 
       // js
       'jquery',
@@ -31,10 +32,11 @@ module.exports = () => {
 
       'react-helmet',
       'react-redux',
-      'react-localize-redux',
-
-      // css
-      'bootstrap/dist/css/bootstrap.min.css'
+      'react-localize-redux'
+    ],
+    theme: [
+      './style/theme/base/style',
+      './style/theme/default/style'
     ],
     loading: ['./style/loading.scss']
   };

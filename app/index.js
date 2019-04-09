@@ -1,7 +1,8 @@
 import '../style/theme/base/style.scss';
 import '../style/theme/default/style.scss';
 
-import '@babel/polyfill';
+import 'core-js';
+import 'regenerator-runtime';
 
 import 'jquery';
 import 'bootstrap';

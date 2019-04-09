@@ -975,7 +975,7 @@ class AccordionsPage extends Component {
         {/* content-wrapper ends */}
       </div>
     );
-  };
+  }
 }
 
 export default AccordionsPage;

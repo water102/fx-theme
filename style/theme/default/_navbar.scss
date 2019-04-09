@@ -40,6 +40,7 @@
                 }
             }
             .brand-logo-mini {
+                color: darken(color(gray-dark), 10%);
                 display: none;
                 img {
                     width: calc(#{$sidebar-width-icon} - 50px);

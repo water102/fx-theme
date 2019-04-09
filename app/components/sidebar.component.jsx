@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -7,40 +7,43 @@ class Sidebar extends Component {
   }
 
   componentDidMount() {
-    $(document).on('mouseenter mouseleave', '.sidebar .nav-item', function (ev) {
-      var body = $('body');
+    $(document).on("mouseenter mouseleave", ".sidebar .nav-item", function(ev) {
+      var body = $("body");
       var sidebarIconOnly = body.hasClass("sidebar-icon-only");
       var horizontalMenu = body.hasClass("horizontal-menu");
       var sidebarFixed = body.hasClass("sidebar-fixed");
       var $menuItem = $(this);
-      if (!('ontouchstart' in document.documentElement)) {
+      if (!("ontouchstart" in document.documentElement)) {
         if (sidebarIconOnly || horizontalMenu) {
           if (sidebarFixed) {
-            if (ev.type === 'mouseenter') {
-              body.removeClass('sidebar-icon-only');
+            if (ev.type === "mouseenter") {
+              body.removeClass("sidebar-icon-only");
             }
           } else {
-            if (ev.type === 'mouseenter') {
-              $menuItem.addClass('hover-open')
+            if (ev.type === "mouseenter") {
+              $menuItem.addClass("hover-open");
             } else {
-              $menuItem.removeClass('hover-open')
+              $menuItem.removeClass("hover-open");
             }
           }
         }
       } else {
         if (sidebarIconOnly || horizontalMenu) {
-          if (ev.type === 'mouseenter') {
-            $menuItem.addClass('hover-open')
+          if (ev.type === "mouseenter") {
+            $menuItem.addClass("hover-open");
           } else {
-            $menuItem.removeClass('hover-open')
+            $menuItem.removeClass("hover-open");
           }
         }
       }
     });
     // Horizontal menu toggle fuction for mobile
-    $(".navbar.horizontal-layout .navbar-menu-wrapper .navbar-toggler").on("click", function () {
-      $(".navbar.horizontal-layout").toggleClass("header-toggled");
-    });
+    $(".navbar.horizontal-layout .navbar-menu-wrapper .navbar-toggler").on(
+      "click",
+      function() {
+        $(".navbar.horizontal-layout").toggleClass("header-toggled");
+      }
+    );
   }
 
   render() {
@@ -89,12 +92,8 @@ class Sidebar extends Component {
                             </div>
                           </div>
                         </a>
-                        <a className="dropdown-item mt-2">
-                          Manage Accounts
-                        </a>
-                        <a className="dropdown-item">
-                          Change Password
-                        </a>
+                        <a className="dropdown-item mt-2">Manage Accounts</a>
+                        <a className="dropdown-item">Change Password</a>
                         <a className="dropdown-item"> Check Inbox </a>
                         <a className="dropdown-item"> Sign Out </a>
                       </div>
@@ -127,10 +126,7 @@ class Sidebar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/dashboard-2"
-                  >
+                  <NavLink className="nav-link" to="/dashboard-2">
                     Dashboard 2
                   </NavLink>
                 </li>
@@ -157,25 +153,41 @@ class Sidebar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/apps/calendar.html"
-                  >
+                  <a className="nav-link" href="pages/apps/calendar.html">
                     Calendar
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="pages/apps/todo.html">
                     Todo List
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/apps/gallery.html"
-                  >
+                  <a className="nav-link" href="pages/apps/gallery.html">
                     Gallery
-</a>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link"
+              data-toggle="collapse"
+              href="#tables-dropdown"
+              aria-expanded="false"
+              aria-controls="apps-dropdown"
+            >
+              <i className="menu-icon mdi mdi-dna" />
+              <span className="menu-title">Tables</span>
+              <i className="menu-arrow" />
+            </a>
+            <div className="collapse" id="tables-dropdown">
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/tables/basic-table">
+                    Basic table
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -201,76 +213,49 @@ class Sidebar extends Component {
             <div className="collapse" id="ui-basic">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/accordions"
-                  >
+                  <NavLink className="nav-link" to="/accordions">
                     Accordions
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/buttons"
-                  >
+                  <NavLink className="nav-link" to="/buttons">
                     Buttons
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/badges"
-                  >
+                  <NavLink className="nav-link" to="/badges">
                     Badges
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/breadcrumbs"
-                  >
+                  <NavLink className="nav-link" to="/breadcrumbs">
                     Breadcrumbs
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/dropdowns"
-                  >
+                  <NavLink className="nav-link" to="/dropdowns">
                     Dropdowns
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/modals"
-                  >
+                  <NavLink className="nav-link" to="/modals">
                     Modals
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/progress"
-                  >
+                  <NavLink className="nav-link" to="/progress">
                     Progress bar
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    to="/pagination"
-                  >
+                  <NavLink className="nav-link" to="/pagination">
                     Pagination
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/tabs.html"
-                  >
+                  <a className="nav-link" href="pages/ui-features/tabs.html">
                     Tabs
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -278,7 +263,7 @@ class Sidebar extends Component {
                     href="pages/ui-features/typography.html"
                   >
                     Typography
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -286,7 +271,7 @@ class Sidebar extends Component {
                     href="pages/ui-features/tooltips.html"
                   >
                     Tooltips
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -306,12 +291,9 @@ class Sidebar extends Component {
             <div className="collapse" id="ui-advanced">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/dragula.html"
-                  >
+                  <a className="nav-link" href="pages/ui-features/dragula.html">
                     Dragula
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -319,7 +301,7 @@ class Sidebar extends Component {
                     href="pages/ui-features/clipboard.html"
                   >
                     Clipboard
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -327,15 +309,12 @@ class Sidebar extends Component {
                     href="pages/ui-features/context-menu.html"
                   >
                     Context menu
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/slider.html"
-                  >
+                  <a className="nav-link" href="pages/ui-features/slider.html">
                     Sliders
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -343,23 +322,17 @@ class Sidebar extends Component {
                     href="pages/ui-features/carousel.html"
                   >
                     Carousel
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/colcade.html"
-                  >
+                  <a className="nav-link" href="pages/ui-features/colcade.html">
                     Colcade
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/ui-features/loaders.html"
-                  >
+                  <a className="nav-link" href="pages/ui-features/loaders.html">
                     Loaders
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -384,7 +357,7 @@ class Sidebar extends Component {
                     href="pages/forms/basic_elements.html"
                   >
                     Basic Elements
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -392,23 +365,17 @@ class Sidebar extends Component {
                     href="pages/forms/advanced_elements.html"
                   >
                     Advanced Elements
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/forms/validation.html"
-                  >
+                  <a className="nav-link" href="pages/forms/validation.html">
                     Validation
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/forms/wizard.html"
-                  >
+                  <a className="nav-link" href="pages/forms/wizard.html">
                     Wizard
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -428,20 +395,14 @@ class Sidebar extends Component {
             <div className="collapse" id="editors">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/forms/text_editor.html"
-                  >
+                  <a className="nav-link" href="pages/forms/text_editor.html">
                     Text editors
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/forms/code_editor.html"
-                  >
+                  <a className="nav-link" href="pages/forms/code_editor.html">
                     Code editors
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -461,28 +422,19 @@ class Sidebar extends Component {
             <div className="collapse" id="charts">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/chartjs.html"
-                  >
+                  <a className="nav-link" href="pages/charts/chartjs.html">
                     ChartJs
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/morris.html"
-                  >
+                  <a className="nav-link" href="pages/charts/morris.html">
                     Morris
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/flot-chart.html"
-                  >
+                  <a className="nav-link" href="pages/charts/flot-chart.html">
                     Flot
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -490,36 +442,27 @@ class Sidebar extends Component {
                     href="pages/charts/google-charts.html"
                   >
                     Google charts
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/sparkline.html"
-                  >
+                  <a className="nav-link" href="pages/charts/sparkline.html">
                     Sparkline js
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="pages/charts/c3.html">
                     C3 charts
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/chartist.html"
-                  >
+                  <a className="nav-link" href="pages/charts/chartist.html">
                     Chartists
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/charts/justGage.html"
-                  >
+                  <a className="nav-link" href="pages/charts/justGage.html">
                     JustGage
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -539,28 +482,19 @@ class Sidebar extends Component {
             <div className="collapse" id="tables">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/tables/basic-table.html"
-                  >
+                  <a className="nav-link" href="pages/tables/basic-table.html">
                     Basic table
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/tables/data-table.html"
-                  >
+                  <a className="nav-link" href="pages/tables/data-table.html">
                     Data table
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/tables/js-grid.html"
-                  >
+                  <a className="nav-link" href="pages/tables/js-grid.html">
                     Js-grid
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -568,25 +502,19 @@ class Sidebar extends Component {
                     href="pages/tables/sortable-table.html"
                   >
                     Sortable table
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
           <li className="nav-item">
-            <a
-              className="nav-link"
-              href="pages/ui-features/popups.html"
-            >
+            <a className="nav-link" href="pages/ui-features/popups.html">
               <i className="menu-icon mdi mdi-shield-outline" />
               <span className="menu-title">Popups</span>
             </a>
           </li>
           <li className="nav-item">
-            <a
-              className="nav-link"
-              href="pages/ui-features/notifications.html"
-            >
+            <a className="nav-link" href="pages/ui-features/notifications.html">
               <i className="menu-icon mdi mdi-flag-outline" />
               <span className="menu-title">Notifications</span>
             </a>
@@ -606,20 +534,14 @@ class Sidebar extends Component {
             <div className="collapse" id="icons">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/icons/flag-icons.html"
-                  >
+                  <a className="nav-link" href="pages/icons/flag-icons.html">
                     Flag icons
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/icons/font-awesome.html"
-                  >
+                  <a className="nav-link" href="pages/icons/font-awesome.html">
                     Font Awesome
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -627,15 +549,12 @@ class Sidebar extends Component {
                     href="pages/icons/simple-line-icon.html"
                   >
                     Simple line icons
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/icons/themify.html"
-                  >
+                  <a className="nav-link" href="pages/icons/themify.html">
                     Themify icons
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -657,23 +576,17 @@ class Sidebar extends Component {
                 <li className="nav-item">
                   <a className="nav-link" href="pages/maps/mapeal.html">
                     Mapeal
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/maps/vector-map.html"
-                  >
+                  <a className="nav-link" href="pages/maps/vector-map.html">
                     Vector Map
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/maps/google-maps.html"
-                  >
+                  <a className="nav-link" href="pages/maps/google-maps.html">
                     Google Map
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -693,49 +606,29 @@ class Sidebar extends Component {
             <div className="collapse" id="auth">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/login.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/login.html">
                     Login
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/login-2.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/login-2.html">
                     Login 2
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/register.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/register.html">
                     Register
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/register-2.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/register-2.html">
                     Register 2
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/lock-screen.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/lock-screen.html">
                     Lockscreen
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -755,22 +648,14 @@ class Sidebar extends Component {
             <div className="collapse" id="error">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/error-404.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/error-404.html">
                     404
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/error-500.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/error-500.html">
                     500
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -790,81 +675,55 @@ class Sidebar extends Component {
             <div className="collapse" id="general-pages">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/blank-page.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/blank-page.html">
                     Blank Page
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
                     className="nav-link"
                     href="pages/samples/landing-page.html"
                   >
-
                     Landing Page
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/profile.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/profile.html">
                     Profile
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="pages/samples/faq.html">
-
                     FAQ
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/faq-2.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/faq-2.html">
                     FAQ 2
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/news-grid.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/news-grid.html">
                     News grid
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/timeline.html"
-                  >
-
+                  <a className="nav-link" href="pages/samples/timeline.html">
                     Timeline
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
                     className="nav-link"
                     href="pages/samples/search-results.html"
                   >
-
                     Search Results
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/portfolio.html"
-                  >
+                  <a className="nav-link" href="pages/samples/portfolio.html">
                     Portfolio
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -884,12 +743,9 @@ class Sidebar extends Component {
             <div className="collapse" id="e-commerce">
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/invoice.html"
-                  >
+                  <a className="nav-link" href="pages/samples/invoice.html">
                     Invoice
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
@@ -897,15 +753,12 @@ class Sidebar extends Component {
                     href="pages/samples/pricing-table.html"
                   >
                     Pricing Table
-</a>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="pages/samples/orders.html"
-                  >
+                  <a className="nav-link" href="pages/samples/orders.html">
                     Orders
-</a>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -913,7 +766,7 @@ class Sidebar extends Component {
         </ul>
       </nav>
     );
-  };
+  }
 }
 
 export default Sidebar;
