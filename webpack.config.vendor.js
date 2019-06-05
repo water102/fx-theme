@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const webpackCommon = require('./webpack.common');
 
@@ -34,10 +35,7 @@ module.exports = () => {
       'react-redux',
       'react-localize-redux'
     ],
-    theme: [
-      './style/theme/base/style',
-      './style/theme/default/style'
-    ],
+    theme: ['./style/theme/base/style', './style/theme/default/style'],
     loading: ['./style/loading.scss']
   };
 
