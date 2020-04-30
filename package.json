@@ -58,7 +58,7 @@
     "chartjs-plugin-streaming": "^1.8.0",
     "core-js": "^3.2.1",
     "immutability-helper": "^3.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-bar-rating": "^1.2.2",
     "popper.js": "^1.15.0",
     "progressbar.js": "^1.0.1",
